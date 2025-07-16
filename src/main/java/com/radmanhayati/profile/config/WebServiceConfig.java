@@ -1,5 +1,6 @@
 package com.radmanhayati.profile.config;
 
+import com.radmanhayati.profile.client.UserSoapClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
@@ -33,5 +34,11 @@ public class WebServiceConfig {
 
         webServiceTemplate.setMessageSender(messageSender);
         return webServiceTemplate;
+    }
+    @Bean
+    public UserSoapClient userSoapClient(WebServiceTemplate webServiceTemplate) {
+        UserSoapClient client = new UserSoapClient();
+        client.setWebServiceTemplate(webServiceTemplate);
+        return client;
     }
 }

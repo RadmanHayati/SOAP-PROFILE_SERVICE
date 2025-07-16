@@ -29,7 +29,7 @@ public class ProfileServiceImpl implements ProfileService {
             throw new UserNotFoundException("User not found");
         }
         var profile = mapper.toProfile(model);
-        return mapper.toProfileResult(profileDao.save(profile));
+        return mapper.toProfileResult(profileDao.save(profile),response);
     }
 
     @Override

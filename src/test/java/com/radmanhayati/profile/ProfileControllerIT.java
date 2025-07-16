@@ -19,19 +19,22 @@ class ProfileControllerIT extends AbstractContainerBaseTest {
 	private TestRestTemplate restTemplate;
 
 	@Test
-	void whenCreateUser_thenReturns201() {
+	void whenCreateProfile_thenReturns201() {
 		CreateProfileRequest request = new CreateProfileRequest();
-		request.setUserId(100L);
+		request.setUserId(1L);
 		request.setBio("Test Bio");
 		request.setLocation("Test Location");
 		request.setAge(18);
 
 		ResponseEntity<UserProfileResponse> response = restTemplate.postForEntity(
-				"/api/users",
+				"/api/profiles",
 				new HttpEntity<>(request),
 				UserProfileResponse.class
 		);
 
 		assertEquals(HttpStatus.OK, response.getStatusCode());
+		assertEquals("john.doe@example.com", response.getBody().getProfile().getUserEmail());
+		assertEquals("John Doe", response.getBody().getProfile().getUserName());
+		assertEquals("Test Bio", response.getBody().getProfile().getBio());
 	}
 }
