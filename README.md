@@ -148,3 +148,4 @@ This project illustrates a scalable and clean microservices architecture using m
 
 **Sincerely Radman Hayati**
 
+<div align="center"> <table> <tr> <td align="center"> <strong>Microservices</strong><br/> <img src="https://github.com/user-attachments/assets/07025255-1bf2-49c4-be37-faafc4279d38" alt="User Service Swagger UI" width="800"/> </td> </tr> <tr> <td align="center"> <strong>Swagger UI</strong><br/> <img src="https://github.com/user-attachments/assets/13801651-7eb2-48e8-b9e4-63ca8cd43280" alt="Profile Service Swagger UI" width="800"/> </td> </tr> <tr> <td align="center"> <strong>WSDL XSD Files</strong><br/> <img src="https://github.com/user-attachments/assets/831425dd-71f2-4d01-9ae7-ac1a1c1bb8b5" alt="Container logs" width="800"/> </td> </tr> </table> </div>
