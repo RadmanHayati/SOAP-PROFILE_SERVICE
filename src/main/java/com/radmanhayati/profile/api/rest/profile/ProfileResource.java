@@ -12,10 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.http.MediaType;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @Validated
@@ -33,10 +30,10 @@ public class ProfileResource {
         var result = service.createProfile(mapper.toCreateProfilerModel(request));
         return mapper.toUserResponse(result);
     }
-/*
     @GetMapping("/{userId}")
-    public UserProfileResponse getProfile(@PathVariable Long userId) {
-        return service.getUserProfile(userId);
-    }*/
+    public UserProfileResponse getProfile(@PathVariable Long userId) throws UserNotFoundException {
+        var result =  service.getUser(userId);
+        return mapper.toUserResponse(result);
+    }
 
 }

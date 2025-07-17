@@ -2,6 +2,7 @@ package com.radmanhayati.profile.service.profile.impl;
 
 import com.radmanhayati.profile.client.UserSoapClient;
 import com.radmanhayati.profile.exception.UserNotFoundException;
+import com.radmanhayati.profile.model.profile.Profile;
 import com.radmanhayati.profile.model.profile.dao.ProfileDao;
 import com.radmanhayati.profile.service.profile.ProfileService;
 import com.radmanhayati.profile.service.profile.mapper.UserServiceMapper;
@@ -48,7 +49,10 @@ public class ProfileServiceImpl implements ProfileService {
     }
     @Override
     public ProfileResult getUser(Long userId) throws UserNotFoundException {
-        return null;
+        GetUserResponse response = getUserWithCheck(userId)
+                .orElseThrow(() -> new UserNotFoundException("User not found with id: " + userId));
+        Profile profile = profileDao.findById(userId).orElse(null);
+        return mapper.toProfileResult(profile, response);
     }
 
 }
