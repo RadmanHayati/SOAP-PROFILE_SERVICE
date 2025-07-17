@@ -18,16 +18,18 @@ class ProfileRepositoryIT extends AbstractContainerBaseTest {
 
 	@Test
 	void whenSaveUser_thenCanRetrieve() {
-		/*Profile profile = new Profile();
-		profile.setEmail("test@example.com");
-		profile.setName("Test User");
+		Profile profile = new Profile();
+		profile.setUserId(1L);
+		profile.setBio("Test Bio");
+		profile.setAge(10);
+		profile.setLocation("loc");
 
 		Profile savedProfile = profileDao.save(profile);
 		List<Profile> profiles = profileDao.findAll();
 
 		assertFalse(profiles.isEmpty(), "User list should not be empty after save");
-		assertEquals("Retrieved user email should match saved user email", "test@example.com", profiles.get(0)
-				.getEmail());
-		assertEquals("Retrieved user ID should match saved user ID", savedProfile.getId(), profiles.get(0).getId());*/
+		assertEquals("Retrieved user bio should match saved user bio", "Test Bio", profiles.get(0)
+				.getBio());
+		assertEquals("Retrieved user ID should match saved user ID", savedProfile.getUserId(), profiles.get(0).getUserId());
 	}
 }
